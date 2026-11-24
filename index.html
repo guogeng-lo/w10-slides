@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我選了洗衣機：三輪整理｜W10 動畫簡報</title>
+<link rel="stylesheet" href="reveal/dist/reset.css">
+<link rel="stylesheet" href="reveal/dist/reveal.css">
+<style>
+@font-face{font-family:"W10 Sans";src:url(fonts/sans-400.woff2) format("woff2");font-weight:400}
+@font-face{font-family:"W10 Sans";src:url(fonts/sans-700.woff2) format("woff2");font-weight:700}
+@font-face{font-family:"W10 Sans";src:url(fonts/sans-900.woff2) format("woff2");font-weight:900}
+:root{--bg:#EEF0EE;--ink:#17211D;--sub:#5C6661;--acc:#1F5A4A;--mark:#A9362F;--rule:#C6CCC8;--line:3px;
+--mx:96px;--my:64px;--t-hero:104px;--t-h1:72px;--t-body:42px;--t-small:36px;--ease:cubic-bezier(.25,.8,.3,1)}
+html,body{background:var(--bg)}
+.reveal{font-family:"W10 Sans","Noto Sans TC","Noto Sans CJK TC","Microsoft JhengHei",sans-serif;color:var(--ink);font-size:var(--t-body)}
+.reveal .slides{text-align:left}
+.reveal .slides section.pg{width:1600px;height:900px;padding:0;box-sizing:border-box}
+.pg *{box-sizing:border-box}
+.tag{position:absolute;left:var(--mx);top:var(--my);font-size:var(--t-small);font-weight:700;color:var(--acc);letter-spacing:.04em;z-index:5}
+.tag b{margin-right:18px}
+.pno{position:absolute;right:var(--mx);top:var(--my);font-size:var(--t-small);color:var(--sub);z-index:5}
+.label{font-size:var(--t-small);color:var(--sub);font-weight:400;line-height:1.4}
+q{quotes:"「" "」"}
+/* 動畫：淡入加短距離位移，0.4秒 */
+.reveal .slides section .fragment{opacity:0;visibility:hidden;transform:translateY(24px);transition:opacity .4s var(--ease),transform .4s var(--ease),visibility 0s .4s}
+.reveal .slides section .fragment.visible{opacity:1;visibility:inherit;transform:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
+
+/* 1 起點 */
+.p1 .photo{position:absolute;right:0;top:0;width:860px;height:900px;background:url(圖/第1頁-洗衣機面板.jpg) 46% 50%/cover}
+.p1 .pno{color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.45)}
+.p1 .txt{position:absolute;left:var(--mx);top:120px;bottom:var(--my);width:620px;display:flex;flex-direction:column;justify-content:center}
+.p1 .who{font-size:var(--t-small);color:var(--sub);line-height:1.45}
+.p1 .who b{color:var(--ink);font-weight:700}
+.p1 .hero{font-size:96px;font-weight:700;line-height:1.12;margin-top:26px}
+.p1 .hero em{font-style:normal;color:var(--acc)}
+.p1 .rule{border-top:var(--line) solid var(--rule);margin:34px 0 28px;width:460px}
+.p1 .why div{font-size:var(--t-body);line-height:1.5;font-weight:400}
+
+/* 2 去問（第一輪） */
+.p2 .was{position:absolute;left:var(--mx);top:230px}
+.p2 .was .v{position:relative;display:inline-block;font-size:52px;font-weight:700;margin-top:10px;line-height:1.3}
+.p2 .strike{position:absolute;left:-8px;right:-8px;top:52%;height:6px;background:var(--mark);transform-origin:left center}
+.reveal .slides section .strike.fragment{transform:scaleX(0);opacity:1;visibility:visible;transition:transform .5s var(--ease)}
+.reveal .slides section .strike.fragment.visible{transform:scaleX(1)}
+.p2 .said{position:absolute;left:var(--mx);right:var(--mx);top:460px}
+.p2 .said .q{font-size:88px;font-weight:900;line-height:1.25;color:var(--acc);margin-top:14px;margin-left:-.5em}
+.p2 .src{position:absolute;right:var(--mx);bottom:var(--my);font-size:var(--t-small);color:var(--sub);text-align:right}
+
+/* 3 第二輪 */
+.p3 .sb{position:absolute;left:var(--mx);top:170px;width:880px}
+.p3 .sb{aspect-ratio:1485/1018;background:url(圖/第3頁-四格分鏡.jpg) 0 0/100% 100% no-repeat}
+.p3 .stamp{position:absolute;left:140px;top:420px;border:5px solid var(--mark);color:var(--mark);font-size:56px;font-weight:900;padding:4px 26px;letter-spacing:.2em;background:rgba(238,240,238,.85)}
+.reveal .slides section.p3 .stamp.fragment{transform:rotate(-6deg) scale(1.15)}
+.reveal .slides section.p3 .stamp.fragment.visible{transform:rotate(-6deg)}
+.p3 .right{position:absolute;left:1030px;right:var(--mx);top:150px;bottom:var(--my);display:flex;flex-direction:column;justify-content:center}
+.p3 .q{font-size:46px;font-weight:900;line-height:1.35;color:var(--acc);margin-top:10px;margin-left:-.5em}
+.p3 .over{margin-top:46px;border-top:var(--line) solid var(--rule);padding-top:22px}
+.p3 .over .v{font-size:var(--t-body);font-weight:700;line-height:1.4;margin-top:6px}
+
+/* 4 第三輪 */
+.p4 .ev{position:absolute;left:var(--mx);top:150px;width:696px}
+.p4 .band{position:relative;height:112px;background:url(圖/第4頁-洗衣機.jpg) 50% 50%/cover}
+.p4 .band span{position:absolute;left:16px;bottom:8px;font-size:var(--t-small);font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.p4 .cells{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.p4 .cells img{width:100%;display:block;outline:var(--line) solid transparent;transition:opacity .4s var(--ease),outline-color .4s}
+.reveal .slides section.p4 .cells img.fragment{opacity:.45;visibility:visible;transform:none}
+.reveal .slides section.p4 .cells img.fragment.visible{opacity:1}
+.reveal .slides section.p4 .cells img.fragment.current-fragment{outline-color:var(--acc)}
+.p4 .right{position:absolute;left:868px;right:var(--mx);top:150px}
+.p4 .box{border:var(--line) solid var(--ink);border-radius:14px;padding:20px 30px;font-size:var(--t-body);line-height:1.5;margin-top:12px}
+.p4 .first{margin-top:40px}
+.p4 .first .q{font-size:100px;font-weight:900;color:var(--acc);line-height:1.1;margin-left:-.5em;margin-top:6px}
+.p4 .diff{position:absolute;left:var(--mx);right:var(--mx);top:712px;border-top:var(--line) solid var(--rule);padding-top:20px}
+.p4 .diff .v{font-size:50px;font-weight:700;margin-top:6px}
+
+/* 5 洞見 */
+.p5 .qt{position:absolute;width:620px;font-size:var(--t-body);line-height:1.4;transition:left .9s var(--ease),top .9s var(--ease),width .9s var(--ease),color .9s,font-size .9s var(--ease)}
+.p5 .qt .label{display:block}
+.p5 .qt b{font-weight:700}
+.p5 .q1{left:var(--mx);top:160px}
+.p5 .q2{left:var(--mx);top:640px}
+.p5 .q3{left:884px;top:160px}
+.p5.gathered .qt{width:1408px;font-size:var(--t-small);color:var(--sub)}
+.p5.gathered .qt .label{display:inline;margin-right:24px}
+.p5.gathered .q1{left:var(--mx);top:150px}
+.p5.gathered .q3{left:var(--mx);top:215px}
+.p5.gathered .q2{left:var(--mx);top:280px}
+.p5 .ins{position:absolute;left:var(--mx);right:var(--mx);top:380px;border-top:var(--line) solid var(--rule);padding-top:22px}
+.p5 .ins .v{font-size:58px;font-weight:900;line-height:1.3;margin-top:6px}
+.p5 .ins .v em{font-style:normal;color:var(--acc)}
+.p5 .hmw{position:absolute;left:var(--mx);right:var(--mx);top:660px}
+.p5 .hmw .v{font-size:var(--t-body);font-weight:700;line-height:1.45;margin-top:6px;color:var(--acc)}
+
+/* 6 回頭看 */
+.p6 .roles{position:absolute;left:var(--mx);right:var(--mx);top:150px}
+.p6 .role{display:grid;grid-template-columns:200px 1fr;column-gap:24px;padding:12px 0;border-bottom:var(--line) solid var(--rule)}
+.p6 .role:last-child{border-bottom:0}
+.p6 .rn{font-size:var(--t-small);font-weight:700;color:var(--acc);padding-top:8px}
+.p6 .rt{font-size:46px;font-weight:700;line-height:1.3}
+.p6 .re{font-size:var(--t-small);color:var(--sub);line-height:1.4;margin-top:4px}
+.p6 .prev{position:absolute;left:var(--mx);right:var(--mx);top:612px}
+.p6 .row{display:grid;grid-template-columns:repeat(4,250px);gap:14px;margin-top:8px}
+
+/* 分鏡格（第6、7頁共用，Auto-Animate 對位） */
+.sbc{position:relative;aspect-ratio:668/386;overflow:hidden;background:#fff}
+.sbc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+/* 7 回頭修改 */
+.p7 .h{position:absolute;left:var(--mx);top:128px;font-size:var(--t-h1);font-weight:700;line-height:1.2}
+.p7 .h em{font-style:normal;color:var(--mark)}
+.p7 .row{position:absolute;left:var(--mx);right:var(--mx);top:236px;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.p7 .ring{position:absolute;inset:0;border:4px solid var(--mark)}
+.reveal .slides section.p7 .newimg.fragment,.reveal .slides section.p7 .ring.fragment{transform:none;transition:opacity .7s var(--ease)}
+.p7 .oldimg{transition:opacity .7s var(--ease)}
+.p7 .sbc:has(.newimg.visible) .oldimg{opacity:0}
+.p7 .why{position:absolute;left:var(--mx);right:var(--mx);top:482px}
+.p7 .why .v{font-size:48px;font-weight:700;line-height:1.4;margin-top:8px}
+.p7 .why .v2{font-size:var(--t-body);line-height:1.4;margin-top:2px}
+.p7 .why q{color:var(--acc)}
+.p7 .next{position:absolute;left:var(--mx);right:var(--mx);bottom:var(--my);border-top:var(--line) solid var(--rule);padding-top:22px;display:flex;align-items:baseline;gap:40px}
+.p7 .next .label{color:var(--acc);font-weight:700}
+.p7 .next .v{font-size:54px;font-weight:700}
+</style>
+</head>
+<body>
+<div class="reveal"><div class="slides">
+
+<!-- 1 起點 -->
+<section class="pg p1">
+  <div class="tag"><b>01</b>起點</div>
+  <div class="pno">1 / 7</div>
+  <div class="photo"></div>
+  <div class="txt">
+    <div class="who fragment">我是地表最強那間AI公司<br>前瞻應用中心的主管<br><b>任務：讓更多人第一次用到AI</b></div>
+    <div class="hero fragment">我選了<br><em>洗衣機</em></div>
+    <div class="fragment"><div class="rule"></div>
+      <div class="why"><div>按鈕一堆，大家只按預設</div><div>放在陽台沒人盯</div><div>洗壞了拿出來才發現</div></div></div>
+  </div>
+  <aside class="notes">我是地表最強那間AI公司前瞻應用中心的主管，任務是讓更多人第一次用到AI。
+我沒有特別拿其他家電來比，一開始就是從洗衣機開始想的。它幾乎每個家裡都有，面板上按鈕一堆，可是大家都只按預設；而且它通常放陽台，沒人盯著，洗壞了要等衣服拿出來才知道。
+（出處：W7主管報告第二段；W7設計開發報告的對話紀錄「老實說沒有特別比較，一開始就想到洗衣機」）</aside>
+</section>
+
+<!-- 2 去問（第一輪） -->
+<section class="pg p2">
+  <div class="tag"><b>02</b>去問（第一輪）</div>
+  <div class="pno">2 / 7</div>
+  <div class="was fragment" data-fragment-index="0">
+    <div class="label">我原本以為</div>
+    <div class="v">使用者根本不知道要選哪個行程跟水位<span class="strike fragment" data-fragment-index="2"></span></div>
+  </div>
+  <div class="said fragment" data-fragment-index="1">
+    <div class="label">島上AI扮的小安說</div>
+    <div class="q">「知道可以調脫水，<br>只是怕衣服被絞太皺，所以不敢改」</div>
+  </div>
+  <div class="src">W7 島上的去問島</div>
+  <aside class="notes">第一輪是在島上問AI扮的小安。我原本以為使用者根本不知道要選哪個行程跟水位，結果小安說他知道可以調脫水，只是怕衣服被絞太皺，所以不敢改。
+他不是不會，是不敢，所以我原本那一句被推翻了。
+（出處：W7主管報告第五段；W7設計開發報告第一章；W9研究員手冊第8步「小安說的」）</aside>
+</section>
+
+<!-- 3 去問、給他用（第二輪） -->
+<section class="pg p3">
+  <div class="tag"><b>03</b>去問、給他用（第二輪）</div>
+  <div class="pno">3 / 7</div>
+  <div class="sb" role="img" aria-label="我第二輪帶去的四格分鏡">
+    <div class="stamp fragment" data-fragment-index="2">推翻</div></div>
+  <div class="right">
+    <div class="fragment" data-fragment-index="1">
+      <div class="label">同學說</div>
+      <div class="q">「一個小的面板跟你<br>顯示文字，然後問我<br>……要不要更改」</div>
+    </div>
+    <div class="over fragment" data-fragment-index="2">
+      <div class="label">被推翻的是第3格</div>
+      <div class="v">AI不用問，直接改就好</div>
+    </div>
+  </div>
+  <aside class="notes">第二輪我找了一個朋友，給她看這張四格分鏡。第3格是AI沒問她，直接把脫水從6分鐘改成9分鐘。
+她說直接出聲問有點恐怖，她要的是一個小的面板顯示文字，問她要不要改。所以被推翻的是第3格「AI不用問，直接改就好」，下一版我就改成先用面板文字問一次。
+（出處：W8研究員手冊第4步問題二、第7步）</aside>
+</section>
+
+<!-- 4 給他用（第三輪） -->
+<section class="pg p4">
+  <div class="tag"><b>04</b>給他用（第三輪）</div>
+  <div class="pno">4 / 7</div>
+  <div class="ev">
+    <div class="band"><span>在洗衣機前面</span></div>
+    <div class="cells">
+      <img class="fragment" data-fragment-index="0" src="圖/第4頁-分鏡1.jpg" alt="第1格">
+      <img class="fragment" data-fragment-index="1" src="圖/第4頁-分鏡2.jpg" alt="第2格">
+      <img class="fragment" data-fragment-index="2" src="圖/第4頁-分鏡3.jpg" alt="第3格">
+      <img class="fragment" data-fragment-index="4" src="圖/第4頁-分鏡4.jpg" alt="第4格">
+    </div>
+  </div>
+  <div class="right">
+    <div class="fragment" data-fragment-index="2">
+      <div class="label">我替AI說</div>
+      <div class="box">我有看過你這件衣服<br>前兩次有它<br>水都會變成其他顏色</div>
+    </div>
+    <div class="first fragment" data-fragment-index="3">
+      <div class="label">她的第一句</div>
+      <div class="q">「重新洗」</div>
+    </div>
+  </div>
+  <div class="diff fragment" data-fragment-index="5">
+    <div class="label">差最多的是</div>
+    <div class="v">小安怕衣服被絞皺，我媽怕衛生紙屑黏在黑衣服上</div>
+  </div>
+  <aside class="notes">第三輪我找我媽，就在家裡這台洗衣機前面。她畫完她的一天之後，我沒有真的拿衣服給她洗，是站在旁邊用講的替AI開口：如果有一天AI在面板上跳出來說「我有看過你這件衣服，前兩次有它的時候水都會變成其他顏色」，你會怎麼辦？
+她聽完第一句就是「重新洗」「要拿出來重新洗」。這是她聽完這個情境的回答，不是她真的去操作洗衣機，而且她全程是看著我在回答。
+四欄差最多的是怕什麼：小安怕皺；我媽說現在的衣服不太會退色，會退色的衣服大家根本不會買，她怕的是衛生紙屑黏在黑色衣服上。
+（出處：W9研究員手冊第4步問題一、第8步；W9錄音逐字稿節錄）</aside>
+</section>
+
+<!-- 5 說清楚、想辦法 -->
+<section class="pg p5">
+  <div class="tag"><b>05</b>說清楚、想辦法</div>
+  <div class="pno">5 / 7</div>
+  <div class="qt q1 fragment" data-fragment-index="0"><span class="label">第一輪　小安</span><b>「怕衣服被絞太皺，所以不敢改」</b></div>
+  <div class="qt q3 fragment" data-fragment-index="1"><span class="label">第二輪　朋友（試過其他模式嗎）</span><b>「沒有，完全沒有」</b></div>
+  <div class="qt q2 fragment" data-fragment-index="2"><span class="label">第三輪　我媽</span><b>「以我們來說洗衣服是很簡單的事情，所以不需要AI」</b></div>
+  <span class="fragment gather" data-fragment-index="3"></span>
+  <div class="ins fragment" data-fragment-index="4">
+    <div class="label">洞見</div>
+    <div class="v">洗衣服對我媽來說本來就很簡單，<br>自己檢查就夠了，<em>AI有也可以、沒有也沒差</em></div>
+  </div>
+  <div class="hmw fragment" data-fragment-index="5">
+    <div class="label">我們可以怎麼</div>
+    <div class="v">讓沒什麼洗衣經驗的年輕人，<br>在衣服丟進去之前就知道哪些要分開、哪些要先檢查？</div>
+  </div>
+  <aside class="notes">三輪各放一句原話：小安怕衣服被絞太皺，所以不敢改；朋友連其他模式都完全沒試過；我媽則是說洗衣服很簡單，不需要AI。
+前兩輪都是怕，我媽是根本不怕。所以洞見是：她不排斥AI，也願意相信它，但洗衣服對她來說本來就很簡單，自己檢查就夠了，AI有也可以、沒有也沒差。
+從這裡出發，要解決的就變成：我們可以怎麼讓沒什麼洗衣經驗的年輕人，在衣服丟進去之前就知道哪些要分開、哪些要先檢查？
+（出處：W9研究員手冊第6步問題一、問題二；W8研究員手冊第3步；W9手冊第8步）</aside>
+</section>
+
+<!-- 6 回頭看 -->
+<section class="pg p6" data-auto-animate>
+  <div class="tag"><b>06</b>回頭看</div>
+  <div class="pno">6 / 7</div>
+  <div class="roles">
+    <div class="role fragment" data-fragment-index="0"><div class="rn">夢想家</div><div>
+      <div class="rt">我會從一個人平常的習慣裡，看出她沒直接講的在意</div>
+      <div class="re">第三輪第3步：從「沒有什麼心情」問到她怕衛生紙屑</div></div></div>
+    <div class="role fragment" data-fragment-index="1"><div class="rn">設計師</div><div>
+      <div class="rt">我會照別人的反應，改AI開口的方式</div>
+      <div class="re">第二輪第4步：同學說「直接問有點恐怖」，第三輪分鏡改成只在面板跳字</div></div></div>
+    <div class="role fragment" data-fragment-index="2"><div class="rn">工匠</div><div>
+      <div class="rt">我能把想法先做成別人玩得到的東西</div>
+      <div class="re">第一輪：把開發流程群島改成泡泡漂流島，放上GitHub</div></div></div>
+  </div>
+  <div class="prev fragment" data-fragment-index="3">
+    <div class="label">上一版四格分鏡</div>
+    <div class="row">
+      <div class="sbc" data-id="sb1"><img data-id="old1" src="圖/第4頁-分鏡1.jpg" alt="第1格"></div>
+      <div class="sbc" data-id="sb2"><img src="圖/第4頁-分鏡2.jpg" alt="第2格"></div>
+      <div class="sbc" data-id="sb3"><img src="圖/第4頁-分鏡3.jpg" alt="第3格"></div>
+      <div class="sbc" data-id="sb4"><img src="圖/第4頁-分鏡4.jpg" alt="第4格"></div>
+    </div>
+  </div>
+  <aside class="notes">三輪下來，夢想家的部分：第三輪我媽一開始說洗衣服沒有什麼心情，一路問下去才講出她最怕衛生紙的白白黏在黑色衣服上。
+設計師：第二輪朋友說直接問有點恐怖，要面板顯示文字，第三輪分鏡就改成只跳字不出聲。不過訪談的時候沒有真的做出面板，還是我站在旁邊用講的替AI說。
+工匠：第一輪我把開發流程群島改成泡泡漂流島放上GitHub，還做了按洗衣機會顯示脫水分鐘數的互動。
+最後這排是第三輪給我媽看的那版分鏡，下一頁要改其中一格。
+（出處：W9研究員手冊最後一頁「三輪回頭看」）</aside>
+</section>
+
+<!-- 7 回頭修改 -->
+<section class="pg p7" data-auto-animate>
+  <div class="tag"><b>07</b>回頭修改</div>
+  <div class="pno">7 / 7</div>
+  <div class="h">我改了第<em>1</em>格：換成自己住的大學生</div>
+  <div class="row">
+    <div class="sbc" data-id="sb1"><img class="oldimg" data-id="old1" src="圖/第4頁-分鏡1.jpg" alt="原本的第1格"><img class="newimg fragment" data-fragment-index="0" src="圖/第7頁-新第1格.jpg" alt="新的第1格"><div class="ring fragment" data-fragment-index="0"></div></div>
+    <div class="sbc" data-id="sb2"><img src="圖/第4頁-分鏡2.jpg" alt="第2格"></div>
+    <div class="sbc" data-id="sb3"><img src="圖/第4頁-分鏡3.jpg" alt="第3格"></div>
+    <div class="sbc" data-id="sb4"><img src="圖/第4頁-分鏡4.jpg" alt="第4格"></div>
+  </div>
+  <div class="why fragment" data-fragment-index="1">
+    <div class="label">為什麼改</div>
+    <div class="v">我媽說她自己<q>不需要AI</q></div>
+    <div class="v2">需要的是<q>年輕人……根本不會分配</q></div>
+  </div>
+  <div class="next fragment" data-fragment-index="2"><span class="label">下一步</span><span class="v">去找自己住、第一次自己洗衣服的人</span></div>
+  <aside class="notes">我改的是第1格。原本第1格是一個人累了，深藍褲子跟白T沒分就丟一起。我媽自己說「以我們來說洗衣服是很簡單的事情，所以不需要AI」，真正需要的是「年輕人洗衣服沒有經驗，根本不會分配」，所以第1格的人換成自己住的大學生，深色淺色一起丟，按預設就要走。他已經自己洗過幾次了，所以第2格AI才記得這件褲子前兩次讓水變色。
+主管的下一步是換一種使用者：去找剛開始自己住、要自己決定怎麼洗的新手。上一輪的朋友雖然也是年輕人，但她住家裡、照爸爸教的洗，所以要找的是旁邊沒人教的那種。我媽說就算檢查過，口袋裡也常有漏網之魚，這個點子我也會一起拿去問。
+（出處：W9研究員手冊第5步問題二、第7步問題一、問題二；材料/上台被問的兩題.md）</aside>
+</section>
+
+</div></div>
+<script src="reveal/dist/reveal.js"></script>
+<script src="reveal/dist/plugin/notes.js"></script>
+<script>
+Reveal.initialize({
+  width:1600, height:900, margin:0, hash:true,
+  center:false, controls:false, progress:false,
+  transition:'fade', transitionSpeed:'fast',
+  autoAnimateDuration:0.9, autoAnimateEasing:'cubic-bezier(.25,.8,.3,1)',
+  plugins:[RevealNotes]
+});
+function syncGather(){
+  document.querySelectorAll('section.p5').forEach(function(s){
+    var g=s.querySelector('.gather');
+    s.classList.toggle('gathered', g.classList.contains('visible'));
+  });
+}
+Reveal.on('fragmentshown', syncGather);
+Reveal.on('fragmenthidden', syncGather);
+Reveal.on('slidechanged', syncGather);
+Reveal.on('ready', syncGather);
+</script>
+</body>
+</html>
