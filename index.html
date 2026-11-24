@@ -60,9 +60,12 @@ q{quotes:"「" "」"}
 
 /* 4 第三輪 */
 .p4 .ev{position:absolute;left:var(--mx);top:150px;width:696px}
-.p4 .band{position:relative;height:112px;background:url(圖/第4頁-洗衣機.jpg) 50% 50%/cover}
+.p4 .bandrow{display:flex;gap:12px;height:140px}
+.p4 .band{position:relative;flex:1;background:url(圖/第4頁-洗衣機.jpg) 50% 50%/cover}
+.p4 .day{position:relative;width:214px;background:#fff url(圖/第4頁-她畫的一天.jpg) 50% 4px/auto 92px no-repeat;outline:1px solid var(--rule)}
+.p4 .day span{position:absolute;left:0;right:0;bottom:0;padding:2px 0;font-size:var(--t-small);font-weight:700;color:var(--ink);background:rgba(255,255,255,.85);text-align:center;line-height:1.2}
 .p4 .band span{position:absolute;left:16px;bottom:8px;font-size:var(--t-small);font-weight:700;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
-.p4 .cells{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.p4 .cells{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .p4 .cells img{width:100%;display:block;outline:var(--line) solid transparent;transition:opacity .4s var(--ease),outline-color .4s}
 .reveal .slides section.p4 .cells img.fragment{opacity:.45;visibility:visible;transform:none}
 .reveal .slides section.p4 .cells img.fragment.visible{opacity:1}
@@ -71,7 +74,7 @@ q{quotes:"「" "」"}
 .p4 .box{border:var(--line) solid var(--ink);border-radius:14px;padding:20px 30px;font-size:var(--t-body);line-height:1.5;margin-top:12px}
 .p4 .first{margin-top:40px}
 .p4 .first .q{font-size:100px;font-weight:900;color:var(--acc);line-height:1.1;margin-left:-.5em;margin-top:6px}
-.p4 .diff{position:absolute;left:var(--mx);right:var(--mx);top:712px;border-top:var(--line) solid var(--rule);padding-top:20px}
+.p4 .diff{position:absolute;left:var(--mx);right:var(--mx);top:724px;border-top:var(--line) solid var(--rule);padding-top:20px}
 .p4 .diff .v{font-size:50px;font-weight:700;margin-top:6px}
 
 /* 5 洞見 */
@@ -138,7 +141,7 @@ q{quotes:"「" "」"}
       <div class="why"><div>按鈕一堆，大家只按預設</div><div>放在陽台沒人盯</div><div>洗壞了拿出來才發現</div></div></div>
   </div>
   <aside class="notes">我是地表最強那間AI公司前瞻應用中心的主管，任務是讓更多人第一次用到AI。
-我沒有特別拿其他家電來比，一開始就是從洗衣機開始想的。它幾乎每個家裡都有，面板上按鈕一堆，可是大家都只按預設；而且它通常放陽台，沒人盯著，洗壞了要等衣服拿出來才知道。
+我一開始就是從洗衣機想的：家家都有，面板按鈕一堆大家只按預設，而且放陽台沒人盯，洗壞了拿出來才發現。
 （出處：W7主管報告第二段；W7設計開發報告的對話紀錄「老實說沒有特別比較，一開始就想到洗衣機」）</aside>
 </section>
 
@@ -155,8 +158,8 @@ q{quotes:"「" "」"}
     <div class="q">「知道可以調脫水，<br>只是怕衣服被絞太皺，所以不敢改」</div>
   </div>
   <div class="src">W7 島上的去問島</div>
-  <aside class="notes">第一輪是在島上問AI扮的小安。我原本以為使用者根本不知道要選哪個行程跟水位，結果小安說他知道可以調脫水，只是怕衣服被絞太皺，所以不敢改。
-他不是不會，是不敢，所以我原本那一句被推翻了。
+  <aside class="notes">第一輪在島上問AI扮的小安。我原本以為使用者根本不知道要選哪個行程，結果小安說他知道可以調脫水，只是怕衣服被絞太皺，不敢改。
+他不是不會，是不敢，所以我原本那句被推翻了。
 （出處：W7主管報告第五段；W7設計開發報告第一章；W9研究員手冊第8步「小安說的」）</aside>
 </section>
 
@@ -176,8 +179,8 @@ q{quotes:"「" "」"}
       <div class="v">AI不用問，直接改就好</div>
     </div>
   </div>
-  <aside class="notes">第二輪我找了一個朋友，給她看這張四格分鏡。第3格是AI沒問她，直接把脫水從6分鐘改成9分鐘。
-她說直接出聲問有點恐怖，她要的是一個小的面板顯示文字，問她要不要改。所以被推翻的是第3格「AI不用問，直接改就好」，下一版我就改成先用面板文字問一次。
+  <aside class="notes">第二輪我帶這張分鏡去找一個朋友。第3格是AI沒問她，就直接把脫水從6分鐘改成9分鐘。
+她說直接出聲問有點恐怖，要一個小面板顯示文字問她要不要改，所以被推翻的是「AI不用問，直接改」。
 （出處：W8研究員手冊第4步問題二、第7步）</aside>
 </section>
 
@@ -186,7 +189,7 @@ q{quotes:"「" "」"}
   <div class="tag"><b>04</b>給他用（第三輪）</div>
   <div class="pno">4 / 7</div>
   <div class="ev">
-    <div class="band"><span>在洗衣機前面</span></div>
+    <div class="bandrow"><div class="band"><span>在洗衣機前面</span></div><div class="day"><span>她畫的一天</span></div></div>
     <div class="cells">
       <img class="fragment" data-fragment-index="0" src="圖/第4頁-分鏡1.jpg" alt="第1格">
       <img class="fragment" data-fragment-index="1" src="圖/第4頁-分鏡2.jpg" alt="第2格">
@@ -208,10 +211,10 @@ q{quotes:"「" "」"}
     <div class="label">差最多的是</div>
     <div class="v">小安怕衣服被絞皺，我媽怕衛生紙屑黏在黑衣服上</div>
   </div>
-  <aside class="notes">第三輪我找我媽，就在家裡這台洗衣機前面。她畫完她的一天之後，我沒有真的拿衣服給她洗，是站在旁邊用講的替AI開口：如果有一天AI在面板上跳出來說「我有看過你這件衣服，前兩次有它的時候水都會變成其他顏色」，你會怎麼辦？
-她聽完第一句就是「重新洗」「要拿出來重新洗」。這是她聽完這個情境的回答，不是她真的去操作洗衣機，而且她全程是看著我在回答。
-四欄差最多的是怕什麼：小安怕皺；我媽說現在的衣服不太會退色，會退色的衣服大家根本不會買，她怕的是衛生紙屑黏在黑色衣服上。
-（出處：W9研究員手冊第4步問題一、第8步；W9錄音逐字稿節錄）</aside>
+  <aside class="notes">第三輪在家裡洗衣機前面找我媽，她先畫了她的一天。接著我站在旁邊用講的替AI開口：「我有看過你這件衣服，前兩次有它的時候水都會變成其他顏色」。
+她第一句就是「重新洗」。這是她聽完情境的回答，不是真的去操作，而且她一直看著我回答。
+差最多的是怕什麼：小安怕皺，我媽怕衛生紙屑黏在黑衣服上。
+（出處：W9研究員手冊第2步、第4步問題一、第8步；照片：她畫的一天那張紙；W9錄音逐字稿節錄）</aside>
 </section>
 
 <!-- 5 說清楚、想辦法 -->
@@ -230,10 +233,9 @@ q{quotes:"「" "」"}
     <div class="label">我們可以怎麼</div>
     <div class="v">讓沒什麼洗衣經驗的年輕人，<br>在衣服丟進去之前就知道哪些要分開、哪些要先檢查？</div>
   </div>
-  <aside class="notes">三輪各放一句原話：小安怕衣服被絞太皺，所以不敢改；朋友連其他模式都完全沒試過；我媽則是說洗衣服很簡單，不需要AI。
-前兩輪都是怕，我媽是根本不怕。所以洞見是：她不排斥AI，也願意相信它，但洗衣服對她來說本來就很簡單，自己檢查就夠了，AI有也可以、沒有也沒差。
-從這裡出發，要解決的就變成：我們可以怎麼讓沒什麼洗衣經驗的年輕人，在衣服丟進去之前就知道哪些要分開、哪些要先檢查？
-（出處：W9研究員手冊第6步問題一、問題二；W8研究員手冊第3步；W9手冊第8步）</aside>
+  <aside class="notes">三輪放在一起：小安怕絞皺不敢改設定，朋友怕弄壞只照爸爸教的按；我媽也怕衛生紙屑，但她已經有自己的做法，丟進去前先檢查，漏了就清掉重洗，所以她說不需要AI。
+真正需要的是還沒有自己做法的人，所以問題變成：我們可以怎麼讓沒什麼洗衣經驗的年輕人，在丟進去之前就知道哪些要分開、哪些要先檢查？
+（出處：W9研究員手冊第3步「丟進去洗衣機之前要檢查好」、漏網之魚清掉重洗（我記得的）、第6步問題一和問題二；W8研究員手冊第3步；W7設計開發報告第一章）</aside>
 </section>
 
 <!-- 6 回頭看 -->
@@ -248,8 +250,8 @@ q{quotes:"「" "」"}
       <div class="rt">我會照別人的反應，改AI開口的方式</div>
       <div class="re">第二輪第4步：同學說「直接問有點恐怖」，第三輪分鏡改成只在面板跳字</div></div></div>
     <div class="role fragment" data-fragment-index="2"><div class="rn">工匠</div><div>
-      <div class="rt">我能把想法先做成別人玩得到的東西</div>
-      <div class="re">第一輪：把開發流程群島改成泡泡漂流島，放上GitHub</div></div></div>
+      <div class="rt">我能把想法先做成別人看得到的東西</div>
+      <div class="re">第一輪做出來：設計開發報告第四、六章，面板顯示脫水分鐘數</div></div></div>
   </div>
   <div class="prev fragment" data-fragment-index="3">
     <div class="label">上一版四格分鏡</div>
@@ -260,11 +262,11 @@ q{quotes:"「" "」"}
       <div class="sbc" data-id="sb4"><img src="圖/第4頁-分鏡4.jpg" alt="第4格"></div>
     </div>
   </div>
-  <aside class="notes">三輪下來，夢想家的部分：第三輪我媽一開始說洗衣服沒有什麼心情，一路問下去才講出她最怕衛生紙的白白黏在黑色衣服上。
-設計師：第二輪朋友說直接問有點恐怖，要面板顯示文字，第三輪分鏡就改成只跳字不出聲。不過訪談的時候沒有真的做出面板，還是我站在旁邊用講的替AI說。
-工匠：第一輪我把開發流程群島改成泡泡漂流島放上GitHub，還做了按洗衣機會顯示脫水分鐘數的互動。
-最後這排是第三輪給我媽看的那版分鏡，下一頁要改其中一格。
-（出處：W9研究員手冊最後一頁「三輪回頭看」）</aside>
+  <aside class="notes">夢想家：我媽一開始說洗衣服沒有什麼心情，一路問下去才講出她怕衛生紙屑。
+設計師：朋友說直接問有點恐怖，第三輪分鏡就改成只在面板跳字，不過訪談時還是我用講的。
+工匠：第一輪做出來那一步，我把原型改成在面板原本的脫水分鐘數上顯示改了什麼。
+下面這排是給我媽看的那版分鏡。
+（出處：W9研究員手冊最後一頁「三輪回頭看」；工匠：W7設計開發報告第四章「原型與AI的設計」、第六章「回頭修改」改成在面板顯示脫水分鐘數）</aside>
 </section>
 
 <!-- 7 回頭修改 -->
@@ -283,9 +285,9 @@ q{quotes:"「" "」"}
     <div class="v">我媽說她自己<q>不需要AI</q></div>
     <div class="v2">需要的是<q>年輕人……根本不會分配</q></div>
   </div>
-  <div class="next fragment" data-fragment-index="2"><span class="label">下一步</span><span class="v">去找自己住、第一次自己洗衣服的人</span></div>
-  <aside class="notes">我改的是第1格。原本第1格是一個人累了，深藍褲子跟白T沒分就丟一起。我媽自己說「以我們來說洗衣服是很簡單的事情，所以不需要AI」，真正需要的是「年輕人洗衣服沒有經驗，根本不會分配」，所以第1格的人換成自己住的大學生，深色淺色一起丟，按預設就要走。他已經自己洗過幾次了，所以第2格AI才記得這件褲子前兩次讓水變色。
-主管的下一步是換一種使用者：去找剛開始自己住、要自己決定怎麼洗的新手。上一輪的朋友雖然也是年輕人，但她住家裡、照爸爸教的洗，所以要找的是旁邊沒人教的那種。我媽說就算檢查過，口袋裡也常有漏網之魚，這個點子我也會一起拿去問。
+  <div class="next fragment" data-fragment-index="2"><span class="label">下一步</span><span class="v">去找剛開始自己住、還不熟悉洗衣分類的人</span></div>
+  <aside class="notes">我改了第1格，換成自己住的大學生，深色淺色一起丟。因為我媽說她自己不需要AI，需要的是年輕人，根本不會分配。他已經自己洗過幾次，所以第2格AI才記得前兩次。
+下一步是去找剛開始自己住、還不熟悉洗衣分類的人，口袋雜物的點子也一起拿去問。
 （出處：W9研究員手冊第5步問題二、第7步問題一、問題二；材料/上台被問的兩題.md）</aside>
 </section>
 
